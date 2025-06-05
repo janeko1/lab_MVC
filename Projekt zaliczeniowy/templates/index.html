@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Lista podróży{% endblock %}
+
+{% block content %}
+<h2>Lista dostępnych podróży</h2>
+
+{% if message %}
+<p style="color: red;">{{ message }}</p>
+{% endif %}
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Cel podróży</th>
+        <th>Data</th>
+        <th>Akcje</th>
+    </tr>
+    {% for trip in trips %}
+    <tr>
+        <td>{{ trip.id }}</td>
+        <td>{{ trip.destination }}</td>
+        <td>{{ trip.date }}</td>
+        <td>
+            <a href="{{ url_for('reservation.reservation_form', trip_id=trip.id) }}">Dodaj rezerwację</a> |
+            <form action="{{ url_for('trip.delete_trip', trip_id=trip.id) }}" method="POST" style="display:inline;">
+                <button type="submit">Usuń podróż</button>
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

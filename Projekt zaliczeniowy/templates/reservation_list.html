@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista rezerwacji</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Lista rezerwacji</h1>
+    
+    {% if reservations %}
+        <ul>
+            {% for reservation in reservations %}
+                <li>
+                    {{ reservation.user_name }} - Podróż ID: {{ reservation.trip_id }}
+                    <form action="{{ url_for('reservation.delete_reservation', reservation_id=reservation.id) }}" method="post" style="display:inline;">
+                        <input type="submit" value="Usuń">
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Brak rezerwacji.</p>
+    {% endif %}
+
+    <a href="{{ url_for('trip.list_trips') }}">Powrót do listy podróży</a>
+</body>
+</html>

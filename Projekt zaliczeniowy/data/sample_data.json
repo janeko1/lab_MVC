@@ -1,0 +1,21 @@
+{
+    "trips": [
+        {
+            "id": 1,
+            "destination": "Paryż",
+            "date": "2025-07-15",
+            "reservations": [
+                {"id": 1, "user_name": "Jan Kowalski"},
+                {"id": 2, "user_name": "Anna Nowak"}
+            ]
+        },
+        {
+            "id": 2,
+            "destination": "Tokio",
+            "date": "2025-09-21",
+            "reservations": [
+                {"id": 3, "user_name": "Piotr Zieliński"}
+            ]
+        }
+    ]
+}

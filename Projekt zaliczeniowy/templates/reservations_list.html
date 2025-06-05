@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Lista rezerwacji{% endblock %}
+
+{% block content %}
+<h2>Lista rezerwacji</h2>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Imię i nazwisko</th>
+        <th>Typ rezerwacji</th>
+        <th>Podróż ID</th>
+        <th>Akcje</th>
+    </tr>
+    {% for reservation in reservations %}
+    <tr>
+        <td>{{ reservation.id }}</td>
+        <td>{{ reservation.user_name }}</td>
+        <td>{{ reservation.type }}</td>
+        <td>{{ reservation.trip_id }}</td>
+        <td>
+            <form action="{{ url_for('reservation.delete_reservation', reservation_id=reservation.id) }}" method="POST">
+                <button type="submit">Usuń</button>
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+<a href="{{ url_for('trip.list_trips') }}">Powrót do listy podróży</a>
+{% endblock %}
