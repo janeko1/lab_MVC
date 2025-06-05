@@ -12,7 +12,7 @@ Aplikacja umożliwia dodawanie podróży, ich edycję oraz zarządzanie rezerwac
 
 ## Instalacja i uruchomienie
 1. Sklonuj repozytorium:
-    git clone https://github.com/TwojeRepo/TravelOrganizer.git
+    git clone https://github.com/janeko1/lab_MVC.git
 2. Zainstaluj wymagane paczki:
     pip install -r requirements.txt
 3. Uruchom aplikację:
